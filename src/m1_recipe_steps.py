@@ -2,7 +2,7 @@
 # print back steps at the end
 
 ###############################################################################
-# TODO: 1. (5 pts)
+# Done: 1. (5 pts)
 #
 #   In this module, we will be making a tool that allows a user to input the
 #   steps to a recipe. Once the user has entered all the steps, it will print
@@ -10,7 +10,7 @@
 #
 #   First we need a function that will simply gather a step from the user.
 #
-#   For this _TODO_ write a function called get_step() that takes one
+#   For this _one_ write a function called get_step() that takes one
 #   parameter:
 #       - num       <-- int
 #
@@ -29,14 +29,16 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
-
+def get_step(num):
+    step = input(f"Please enter the details for step {num}: ")
+    return f"{num}) {step}"
 ###############################################################################
-# TODO: 2. (7 pts)
+# Done: 2. (7 pts)
 #
 #   For this _TODO_, write a function called main() that will start everything
 #   off.
 #
-#   This function should continually as the user for steps in a recipe using a
+#   This function should continually ask the user for steps in a recipe using a
 #   while loop.
 #
 #   For each iteration of the loop, the function should:
@@ -63,3 +65,17 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+def main():
+    steps = []
+    step_num = 1
+    while True:
+        step = get_step(step_num)
+        steps.append(step)
+        step_num += 1
+        if step.split(') ')[1].lower() == 'end':
+            break
+
+    for step in steps:
+        print(step)
+
+main()
